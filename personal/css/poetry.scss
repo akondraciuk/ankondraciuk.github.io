@@ -1,0 +1,424 @@
+@import url(https://fonts.googleapis.com/css?family=Oxygen:400,700,300);
+
+$dark-green: #333d37;
+$teal: #19907d;
+$dark-teal: #0B4135; 
+$light-teal: #31C4AA;
+$cyan: #4CEDCE;
+$white: #FFFFFF;
+$dark-gray: #282828;
+$background: darken($dark-green, 5%);
+
+$button-height: 27px; 
+$button-width: 35px; 
+
+html {
+    overflow: auto; 
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px; 
+    background: rgba(40, 40, 40, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba (40, 40, 40, 0.4);
+}
+
+#bg {
+	background-image: url(../img/poetry.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: fixed;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.container {
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    text-align: center; 
+    color: $dark-gray;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+
+    }
+
+.header {
+    font-size: 40px; 
+    text-align: center;
+    width: inherit;
+    height: auto;
+    vertical-align: middle;
+    font-family: 'Oxygen', sans-serif;
+    color: $white;
+    font-weight: 400;
+    margin-top: 5px; 
+    margin-bottom: 10px; 
+}
+
+.wrapper {
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background: rgba($dark-green, .6);
+    cursor: pointer;
+    
+ 
+}
+
+
+.button_container {
+	position: fixed;
+    bottom: 3%;
+    right: 2%;
+    height: $button-height;
+    width: $button-width;
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity .25s ease;
+
+
+&:hover {
+    opacity: .7;
+}
+
+&.active {
+    .top {
+        transform: translateY(11px) translateX(0) rotate(45deg);
+        background: $white;
+    }
+    .middle {
+        opacity: 0;
+        background: $white;
+    }
+    .bottom {
+        transform: translateY(-11px) translateX(0) rotate(-45deg);
+        background: $white;
+    }
+}
+
+span {
+    background: $white;
+    border: none;
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .35s ease;
+    cursor: pointer;
+    
+    &:nth-of-type(2) {
+        top: 11px;
+    }
+    &:nth-of-type(3) {
+        top: 22px;
+    }
+}
+}
+
+.overlay {
+    position: fixed;
+    background: $dark-green;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, height .35s;
+    overflow: hidden;
+    
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        height: 100%;
+    
+        li {
+           animation: fadeInRight .5s ease forwards;
+           animation-delay: .35s;
+            
+            &:nth-of-type(2) {
+                animation-delay: .4s;
+            }
+            &:nth-of-type(3) {
+                animation-delay: .45s;
+            }
+            &:nth-of-type(4) {
+                animation-delay: .50s;
+            }
+        }
+    }
+   
+    nav {
+        position: relative;
+        height: 70%;
+        top: 45%;
+        transform: translateY(-50%);
+        font-size: 50px;
+        font-family: 'Oxygen', sans-serif;
+        font-weight: 400;
+        text-align: center;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        display: inline-block;
+        position: relative;
+        height: 100%;
+        
+        li {
+            display: block;
+            height: 25%;
+            height: calc(100%/4);
+            min-height: 50px;
+            position: relative;
+            opacity: 0;
+            
+            a {
+                display: block;
+                position: relative;
+                color: $white;
+                text-decoration: none;
+                overflow: hidden;
+                
+                &:hover:after, &:focus:after, &:active:after {
+                    width: 100%;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    width: 0%;
+                    transform: translateX(-50%);
+                    height: 3px;
+                    background: $white;
+                    transition: .35s;
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        left: 20%;
+    }
+    100% {
+        opacity: 1;
+        left: 0;
+    }
+}
+a.btn {
+    background: $light-teal; 
+    border-radius: 4px; 
+    box-shadow: 0 2px 0px 0 rgba(0,0,0,0.25);
+    color: $dark-gray; 
+    display: inline-block;
+    padding: 6px 30px 8px; 
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+}
+
+.no-touch a.btn:hover {
+    background: lighten($light-teal, 2.5);
+    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+    transform: translateY(-2px);
+    transition: all 0.25s 0s ease-out; 
+}
+
+.no-touch a.btn:active, a.btn:active {
+	background: darken($light-teal, 2.5);
+    box-shadow: 0 1px 0px 0 rgba(255,255,255,0.25);
+    transform: translate3d(0,1px,0);
+    transition: all 0.025s 0s ease-out;
+}
+
+.cards {
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.card {
+    background: $white;
+    display: inline-block;
+    margin: 8px; 
+    max-width: 600px; 
+    perspective: 1000; 
+    position: relative;
+    text-align: left;
+    transition: all 0.3s 0s ease-in; 
+    z-index: 1; 
+    
+    img {
+        max-width: 600px;
+    }
+    
+    .card-title {
+        background: $white;
+        padding: 6px 15px 10px; 
+        position: relative; 
+        z-index: 0;
+        
+        a.toggle-info {
+            border-radius: 32px; 
+            height: 32px; 
+            padding: 0; 
+            position: absolute; 
+            right: 15px; 
+            top: 10px; 
+            width: 32px; 
+            
+            span {
+                background: $white; 
+                display: block; 
+                height: 2px; 
+                position: absolute;
+                top: 16px; 
+                transition: all 0.15s 0s ease-out; 
+                width: 12px; 
+            }
+            span.left {
+                right: 14px;
+                transform: rotate(45deg);
+            }
+            span.right {
+                left: 14px; 
+                transform: rotate(-45deg);
+            }
+        }
+        
+        h2 {
+            font-size: 24px; 
+            font-weight: 700;
+            letter-spacing: -0.05em; 
+            margin: 0; 
+            padding: 0;
+            
+        }
+    }
+    
+    .card-description {
+        padding: 0 15px 10px;
+        position: relative;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    
+    .card-actions {
+        box-shadow: 0 2px 0px 0 rgba(0,0,0,0.075); 
+        padding: 10px 15px 20px; 
+        text-align: center; 
+    }
+    
+    .card-flap {
+        background: darken($white, 15);
+        position: absolute;
+        width: 100%; 
+        transform-origin: top;
+        transform: rotateX(-90deg);
+        margin-bottom: 60px;
+    }
+    
+    .flap1 {
+        transition: all 0.3s 0.3s ease-out; 
+        z-index: -1; 
+    }
+    
+    .flap2 {
+        transition: all 0.3s 0s ease-out; 
+        z-index: -2;
+    }
+}
+
+.cards.showing {
+    .card {
+        cursor: pointer;
+        opacity: 0.6; 
+        transform: scale(0.88);
+    }
+}
+
+.no-touch .cards.showing {
+    .card:hover {
+        opacity: 0.94;
+        transform: scale(0.92);
+    }
+}
+
+.card.show {
+    opacity: 1 !important;
+    transform: scale(1) !important; 
+    
+    .card-title {
+        a.toggle-info {
+            background: $dark-green !important;
+            span {
+                top: 15px;
+            }
+            span.left {
+                right: 10px;
+            }
+            span.right {
+                left: 10px;
+            }
+        }
+    }
+    .card-flap {
+        background: $white;
+        transform: rotateX(0deg);
+    }
+    .flap1 {
+        transition: all 0.3s 0s ease-out;
+    }
+    .flap2 {
+        transition: all 0.3s 0.2s ease-out;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

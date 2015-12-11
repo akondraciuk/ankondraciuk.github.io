@@ -1,0 +1,87 @@
+@import url(https://fonts.googleapis.com/css?family=Oxygen:400,700,300);
+
+$dark-green: #333d37;
+$teal: #19907d;
+$dark-teal: #0B4135; 
+$light-teal: #31C4AA;
+$cyan: #4CEDCE;
+$white: #FFFFFF;
+$dark-gray: #282828;
+$background: darken($dark-green, 5%);
+
+$button-height: 27px; 
+$button-width: 35px; 
+
+html {
+    overflow: auto; 
+}
+
+body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 10px; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px; 
+    background: rgba(40, 40, 40, 0.8);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba (40, 40, 40, 0.4);
+}
+
+#bg {
+	background-image: url(../img/playlists.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: fixed;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.container {
+	position: fixed;
+    width: 100%;
+    height: 100%;
+    text-align: center; 
+    color: $dark-gray;
+    top: 27%;
+    left: 0;
+    margin: 0 auto;
+    font-family: 'Oxygen', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
